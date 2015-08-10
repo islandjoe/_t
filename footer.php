@@ -11,15 +11,15 @@
 
 ?>
 
-	</div><!-- #content -->
+  </div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+  <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info">
+      <a href="<?php echo esc_url( __( 'https://wordpress.org/', '_t' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_t' ), 'WordPress' ); ?></a>
+      <span class="sep"> | </span>
+      <?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_t' ), '_t', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+    </div><!-- .site-info -->
+  </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
