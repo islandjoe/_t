@@ -1,10 +1,10 @@
 <?php
 /**
- * _s functions and definitions.
+ * _t functions and definitions.
  *
  * @link https://codex.wordpress.org/Functions_File_Explained
  *
- * @package _s
+ * @package _t
  */
 
 if ( ! function_exists( '_t_setup' ) ) :
@@ -19,7 +19,7 @@ function _t_setup() {
   /*
    * Make theme available for translation.
    * Translations can be filed in the /languages/ directory.
-   * If you're building a theme based on _s, use a find and replace
+   * If you're building a theme based on _t, use a find and replace
    * to change '_t' to the name of your theme in all the template files
    */
   load_theme_textdomain( '_t', get_template_directory() . '/languages' );
