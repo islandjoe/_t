@@ -17,8 +17,8 @@
         {{ fn( 'the_post_navigation' ) }}
 
         {# If comments are open or we have at least one comment, load up the comment template. #}
-        {% if fn( 'comments_open' ) or fn( 'get_comments_number' ) %}
-          {{ fn( 'comments_template' ) }}
+        {% if load_comments %}
+          {% include 'comments.twig' %}
         {% endif %}
 
     </main><!-- #main -->
