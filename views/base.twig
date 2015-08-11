@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+<head>
+  <meta charset="{{ site.charset }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="pingback" href="{{ site.pingback_url }}">
+
+  {{ wp_head }}
+</head>
+
+<body class="{{ body_class }}">
+<div id="page" class="hfeed site">
+  <a class="skip-link screen-reader-text" href="#content">
+    {{ __('Skip to content', '_t' )|e }}
+  </a>
+
+  <header id="masthead" class="site-header" role="banner">
+    <div class="site-branding">
+      {% if fn( 'is_front_page' ) and fn( 'is_home' ) %}
+      <h1 class="site-title"><a href="{{ site.url }}" rel="home">{{ site.name }}</a></h1>
+      {% else %}
+      <p class="site-title"><a href="{{ site.url }}" rel="home">{{ site.name }}</a></p>
+      {% endif %}
+      <p class="site-description">{{ site.description }}</p>
+    </div><!-- .site-branding -->
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">{{ __( 'Primary Menu', '_t' )|e }}</button>
+      {{ fn( 'wp_nav_menu', {
+            'theme_location' : 'primary',
+            'menu_id' : 'primary-menu' } ) }}
+    </nav><!-- #site-navigation -->
+  </header><!-- #masthead -->
+
+  <div id="content" class="site-content">
+  {% block contents %}
+
+
+
+
+
+  {% endblock %}
+  </div><!-- #content -->
+
+  <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info">
+      <a href="{{ __( 'https://wordpress.org/', '_t' )|e }}">
+        {{ 'Proudly powered by %s'|format('WordPress') }}
+      </a>
+      <span class="sep"> | </span>
+      {{ __( 'Theme: %1$s by %2$s.', '_t' )|e|format( '_t', '<a href="http://wanderlusting.me/" rel="designer">Wanderlusting. Me.</a>' ) }}
+    </div><!-- .site-info -->
+  </footer><!-- #colophon -->
+  </div><!-- #page -->
+
+  {{ wp_footer }}
+
+  </body>
+</html>
