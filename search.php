@@ -7,41 +7,16 @@
  * @package _t
  */
 
-get_header(); ?>
+$context = Timber::get_context();
+$context[ 'posts' ] = Timber::get_posts();
 
-  <section id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
+$context[ 'page_title' ] =  sprintf(
+  esc_html__( 'Search Results for: %s', '_t' ),
+              '<span>' . get_search_query() . '</span>' );
 
-    <?php if ( have_posts() ) : ?>
+// Used inside <content-search.twig>
+$context[ 'entry_title' ] = the_title(
+  sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">',
+          esc_url( get_permalink() ) ), '</a></h2>', false );
 
-      <header class="page-header">
-        <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', '_t' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-      </header><!-- .page-header -->
-
-      <?php /* Start the Loop */ ?>
-      <?php while ( have_posts() ) : the_post(); ?>
-
-        <?php
-        /**
-         * Run the loop for the search to output the results.
-         * If you want to overload this in a child theme then include a file
-         * called content-search.php and that will be used instead.
-         */
-        get_template_part( 'template-parts/content', 'search' );
-        ?>
-
-      <?php endwhile; ?>
-
-      <?php the_posts_navigation(); ?>
-
-    <?php else : ?>
-
-      <?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-    <?php endif; ?>
-
-    </main><!-- #main -->
-  </section><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+Timber::render( 'search.twig', $context );
