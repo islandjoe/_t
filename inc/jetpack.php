@@ -19,6 +19,7 @@ function _t_jetpack_setup() {
   ) );
 } // end function _t_jetpack_setup
 add_action( 'after_setup_theme', '_t_jetpack_setup' );
+=======
 
 /**
  * Custom render function for Infinite Scroll.

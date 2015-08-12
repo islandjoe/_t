@@ -5,7 +5,6 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package _t
- */
 
 /**
  * Adds custom classes to the array of body classes.
