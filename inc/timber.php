@@ -20,6 +20,9 @@ add_filter( 'timber_context', function ( $data ) {
   $data[ 'comments_are_paged' ] = (get_comment_pages_count() > 1 && get_option( 'page_comments' ));
   $data[ 'comments_are_closed_and_there_are_comments' ] = ( ! comments_open() && '0' != $comments_number && post_type_supports( get_post_type(), 'comments' ) );
 
+  // DYNAMIC SIDEBAR
+  $data[ 'dynamic_sidebar' ] = Timber::get_widgets('sidebar-1');
+
   return $data;
 
 } );
