@@ -9,7 +9,7 @@ My ultra-minimal CSS might make me look like theme tartare but that means less s
 
 * A just right amount of lean, well-commented, modern, HTML5 templates.
 * A helpful 404 template.
-* A sample custom header implementation in `inc/custom-header.php` that can be activated/deactivated by toggling a one line comment in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to the `base.twig` template.
+* A sample custom header implementation in `inc/custom-header.php` that can be activated/deactivated by toggling a one line comment in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to the `template-parts/base.twig` template.
 * Custom template tags in `inc/template-tags.php` and `inc/timber.php` that keep your templates clean and neat and prevent code duplication.
 * Some small tweaks in `inc/extras.php` that can improve your theming experience.
 * A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
@@ -38,7 +38,7 @@ OR
 * Search for: <code>&nbsp;_t</code> and replace with: <code>&nbsp;Wanderlusting</code>
 * Search for: `_t-` and replace with: `wanderlusting-`
 
-Then, update the stylesheet header in `style.css` and/or `style.scss` and the links in `views/base.twig` with your own information. Next, update or delete this readme.
+Then, update the stylesheet header in `style.css` and/or `style.scss` and the links in `template-parts/base.twig` with your own information. Next, update or delete this readme.
 
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
