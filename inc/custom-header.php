@@ -2,13 +2,17 @@
 /**
  * Sample implementation of the Custom Header feature.
  *
- * You can add an optional custom header image to header.php like so ...
- *
-  <?php if ( get_header_image() ) : ?>
-  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-    <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+ * You can add an optional custom header image to base.twig like so ...
+ *----------------------------------------------------------------------
+  {% if fn( 'get_header_image' ) %}
+  <a href="{{ fn( 'home_url', '/' )|e('url') }}" rel="home">
+    {% set custom_header = fn( 'get_custom_header' ) %}
+    <img src="{{ fn( 'header_image' ) }}"
+         width="{{ custom_header.width | e( 'html_attr' ) }}"
+         height="{{ custom_header.height | e( 'html_attr' ) }}" alt="">
   </a>
-  <?php endif; // End header image check. ?>
+  {% endif %}
+ *-----------------------------------------------------------------------
  *
  * @link http://codex.wordpress.org/Custom_Headers
  *
