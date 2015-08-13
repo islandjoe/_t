@@ -26,3 +26,6 @@ add_filter( 'timber_context', function ( $data ) {
   return $data;
 
 } );
+
+// Set twig files view location to 'template-parts'
+Timber::$dirname = 'template-parts';
