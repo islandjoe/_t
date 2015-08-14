@@ -44,46 +44,46 @@ class Timber_s {
     else
       return;
 
-    return self::_capture_output( $which, [ $label ] );
+    return self::capture_output( $which, [ $label ] );
   }
 
   public static function get_the_link_pages( $args = [] ) {
-    return self::_capture_output( 'wp_link_pages', [ $args ] );
+    return self::capture_output( 'wp_link_pages', [ $args ] );
   }
 
   public static function get_the_comment_form( $post_id ) {
-    return self::_capture_output( 'comment_form', [ [], $post_id ] );
+    return self::capture_output( 'comment_form', [ [], $post_id ] );
   }
 
   public static function get_the_search_form() {
-    return self::_capture_output( 'get_search_form', [] );
+    return self::capture_output( 'get_search_form', [] );
   }
 
   public static function get_the_posts_navigation( $args = [] ) {
-    return self::_capture_output( 'the_posts_navigation', $args );
+    return self::capture_output( 'the_posts_navigation', $args );
   }
 
   public static function get_the_archive_title( $before = '', $after = '' ) {
-    return self::_capture_output( 'the_archive_title', [ $before, $after ] );
+    return self::capture_output( 'the_archive_title', [ $before, $after ] );
   }
 
   public static function get_the_archive_description( $before = '', $after = '' ) {
-    return self::_capture_output( 'the_archive_description', [ $before, $after ] );
+    return self::capture_output( 'the_archive_description', [ $before, $after ] );
   }
 
   public static function get_the_widget( $widget_type, $instance = [], $args = [] ) {
-    return self::_capture_output( 'the_widget', [$widget_type, $instance, $args] );
+    return self::capture_output( 'the_widget', [$widget_type, $instance, $args] );
   }
 
   public static function list_the_categories( $args = [] ) {
-    return self::_capture_output( 'wp_list_categories',  [ $args ] );
+    return self::capture_output( 'wp_list_categories',  [ $args ] );
   }
 
   public static function list_the_comments( $args = [], $comments ) {
-    return self::_capture_output( 'wp_list_comments', [ $args, $comments ] );
+    return self::capture_output( 'wp_list_comments', [ $args, $comments ] );
   }
 
-  protected static function _capture_output( callable $fn, array $args ) {
+  public static function capture_output( callable $fn, array $args ) {
     $res = '';
     ob_start();
       call_user_func_array( $fn, $args );
