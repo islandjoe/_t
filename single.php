@@ -16,7 +16,7 @@ $context = Timber::get_context();
 $context[ 'post' ] = $post = Timber::get_post();
 
 // Entry Meta
-$context[ 'posted_on' ] = _t_posted_on();
+$context[ 'posted_on' ] = Timber_s::capture_output( '_t_posted_on', [] );
 
 $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 
@@ -43,5 +43,8 @@ $_arg = [
   'after'  => '</div>'
 ];
 $context[ 'link_pages' ] = Timber_s::get_the_link_pages( $_arg );
+
+$context[ 'entry_footer' ] = Timber_s::capture_output( '_t_entry_footer', [] );
+
 
 Timber::render( 'single.twig', $context );
