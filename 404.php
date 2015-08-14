@@ -14,15 +14,20 @@ $context[ 'recent_post_widget' ] = Timber_s::get_the_widget( 'WP_Widget_Recent_P
 
 // Widgets
 $context[ 'has_multi_categories' ] = $has_multi_categories = _t_categorized_blog();
+
 if ( $has_multi_categories ):
+
   $context[ 'widget_title' ] = esc_html( 'Most Used Categories', Timber_s::TEXT_DOMAIN );
-  $context[ 'categories_list' ] = Timber_s::list_the_categories( [
-    'orderby'    => 'count',
-    'order'      => 'DESC',
+
+  $args = [
+    'orderby' => 'count',
+    'order' => 'DESC',
     'show_count' => 1,
-    'title_li'   => '',
-    'number'     => 10,
-  ] );
+    'title_li' => '',
+    'number' => 10
+  ];
+  $context[ 'categories_list' ] = Timber_s::list_the_categories( $args );
+
 endif;
 
 $archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', '_s' ), convert_smilies( ':)' ) ) . '</p>';
