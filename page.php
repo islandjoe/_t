@@ -11,7 +11,11 @@
  *
  * @package _t
  */
+
+// *Seeing that this is not the home page nor the 404 page, $context will inject
+//  comments-related vars here (which is defined in 'inc/timber.php')
 $context = Timber::get_context();
+
 $context[ 'post' ] = Timber::get_post();
 
 Timber::render( 'page.twig', $context );
