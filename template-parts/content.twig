@@ -5,8 +5,10 @@
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
 * @package _t
-*#}
+*
+#}
 
+{# Call Stack: archive.php -> archive.twig -> thisfile #}
 
 <article id="post-{{ post.ID }}" class="{{ fn( 'post_class' ) }}">
   <header class="entry-header">
@@ -19,7 +21,7 @@
 
     {% if 'post' == post.post_type %}
       <div class="entry-meta">
-        {{ fn( '_t_posted_on' ) }}
+        {{ posted_on }}
       </div><!-- .entry-meta -->
     {% endif %}
   </header><!-- .entry-header -->

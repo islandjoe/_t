@@ -14,5 +14,6 @@ $context[ 'page_title' ]    = Timber_s::get_the_archive_title( '<h1 class="page-
 $context[ 'taxonomy_desc' ] = Timber_s::get_the_archive_description( '<div class="taxonomy-description">', '</div>' );
 
 $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
+$context[ 'posted_on' ] = Timber_s::capture_output( '_t_posted_on', [] );
 
 Timber::render( 'archive.twig', $context );
