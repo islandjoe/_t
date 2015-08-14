@@ -14,9 +14,12 @@
 
         {% include 'content-single.twig' %}
 
-        {{ fn( 'the_post_navigation' ) }}
+        {{ posts_nav }}
 
-        {# If comments are open or we have at least one comment, load up the comment template. #}
+        {#
+           If comments are open or we have at least one comment, load up the
+           comment template.
+         #}
         {% if load_comments %}
           {% include 'comments.twig' %}
         {% endif %}

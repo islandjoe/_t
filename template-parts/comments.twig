@@ -2,16 +2,20 @@
 **
 * The template for displaying comments.
 *
-* This is the template that displays the area of the page that contains both the current comments
-* and the comment form.
+* This is the template that displays the area of the page that contains both the
+* current comments and the comment form.
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
 * @package _t
 #}
 
-{# Note: "Magic" vars sprinkled below such as 'password_required', 'comments_are_paged',
-         'comments_title', etc. are defined in 'inc/timbers.php'
+{# *Some vars below are not defined in the controller (e.g. in single.php) but
+    in 'inc/timbers.php', under [COMMENTS CONTEXT VARS]. So if you ever
+    need to look up some implementation/definition, they can be found in
+    those two files.
+
+   Call Stack: single.php -> single.twig -> thisfile
 #}
 
   {#
@@ -26,17 +30,19 @@
           {{ comments_title }}
         </h2>
 
+        {# TODO: There is a duplication in codes below, with the only difference
+                 being the nav id. DRY them. Perhaps use 'yield'? #}
         {% if comments_are_paged %}
           {# Are there comments to navigate through? #}
           <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-            <h2 class="screen-reader-text">{{ __( 'Comment navigation', '_t' ) }}</h2>
+            <h2 class="screen-reader-text">{{ sr_text }}</h2>
             <div class="nav-links">
 
               <div class="nav-previous">
-                {{ fn( 'previous_comments_link', __( 'Older Comments', '_t' ) ) }}
+                {{ comments_link_prev }}
               </div>
               <div class="nav-next">
-                {{ fn( 'next_comments_link', __( 'Newer Comments', '_t' ) ) }}
+                {{ comments_link_next }}
               </div>
 
             </div><!-- .nav-links -->
@@ -44,24 +50,20 @@
         {% endif %}{# Check for comment navigation. #}
 
         <ol class="comment-list">
-        {{ fn( 'wp_list_comments', {
-              'style'      : 'ol',
-              'short_ping' : true,
-              }, post.comments )
-        }}
+          {{ comments_list }}
         </ol><!-- .comment-list -->
 
         {% if comments_are_paged %}
           {# Are there comments to navigate through? #}
           <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-            <h2 class="screen-reader-text">{{ __( 'Comment navigation', '_t' ) }}</h2>
+            <h2 class="screen-reader-text">{{ sr_text }}</h2>
             <div class="nav-links">
 
               <div class="nav-previous">
-                {{ fn( 'previous_comments_link', __( 'Older Comments', '_t' ) ) }}
+                {{ comments_link_prev }}
               </div>
               <div class="nav-next">
-                {{ fn( 'next_comments_link', __( 'Newer Comments', '_t' ) ) }}
+                {{ comments_link_next }}
               </div>
 
             </div><!-- .nav-links -->
@@ -70,11 +72,12 @@
 
     {% endif %}{# Check for have_comments(). #}
 
-    {% if comments_are_closed_and_there_are_comments %}{# ...let's leave a little note, shall we? #}
-      <p class="no-comments">{{ __( 'Comments are closed.', '_t' ) }}</p>
+    {% if comments_are_closed_and_there_are_comments %}
+     {# ...let's leave a little note, shall we? #}
+      <p class="no-comments">{{ no_comments }}</p>
     {% endif %}
 
-    {{ fn( 'comment_form' ) }}
+    {{ comment_form }}
 
   </div><!-- #comments -->
 
