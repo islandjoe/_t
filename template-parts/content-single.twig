@@ -23,11 +23,7 @@
 
     {{ post.content }}
 
-    {{ fn( 'wp_link_pages', {
-        'before' : '<div class="page-links">'~__( 'Pages:', '_t' ),
-        'after'  : '</div>'
-        } )
-    }}
+    {{ link_pages }}
 
   </div><!-- .entry-content -->
 

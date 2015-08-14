@@ -37,10 +37,11 @@ $context[ 'no_comments' ] = esc_html( 'Comments are closed.', $t );
 
 $context[ 'comment_form' ] = Timber_s::get_the_comment_form( $post->ID );
 
-// Contents Single
+// Content Single
 $_arg = [
-  'before' => '<div class="page-links">'.esc_html__( 'Pages:', '_s' ),
-  'after'  => '</div>' ];
-$context[ 'link_pages' ] = Timber_s::get_the_link_pages();
+  'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
+  'after'  => '</div>'
+];
+$context[ 'link_pages' ] = Timber_s::get_the_link_pages( $_arg );
 
 Timber::render( 'single.twig', $context );

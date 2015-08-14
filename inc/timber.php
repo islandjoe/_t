@@ -47,6 +47,10 @@ class Timber_s {
     return self::_capture_output( $which, [ $label ] );
   }
 
+  public static function get_the_link_pages( $args = [] ) {
+    return self::_capture_output( 'wp_link_pages', [ $args ] );
+  }
+
   public static function get_the_comment_form( $post_id ) {
     return self::_capture_output( 'comment_form', [ [], $post_id ] );
   }
