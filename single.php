@@ -15,6 +15,9 @@
 $context = Timber::get_context();
 $context[ 'post' ] = $post = Timber::get_post();
 
+// Entry Meta
+$context[ 'posted_on' ] = _t_posted_on();
+
 $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 
 // Comments
