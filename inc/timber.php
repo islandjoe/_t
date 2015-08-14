@@ -3,9 +3,9 @@
 // Define some global variables to use in the Twig templates
 add_filter( 'timber_context', function ( $data ) {
 
-  if ( ! is_404() ):
+  // COMMENTS CONTEXT VARS //
+  if ( ! (is_404() || is_home()) ):
 
-    // COMMENTS
     $data[ 'has_comments' ] = $comments_number = get_comments_number();
     $data[ 'comments_title' ] = sprintf( // WPCS: XSS OK.
       esc_html(
