@@ -3,7 +3,7 @@
 // Define some global variables to use in the Twig templates
 add_filter( 'timber_context', function ( $data ) {
 
-  // COMMENTS CONTEXT VARS //
+  // [COMMENTS CONTEXT VARS] //
   if ( ! ( is_404() || is_home() || is_search() ) ):
 
     $data[ 'has_comments' ] = $comments_number = get_comments_number();
@@ -36,6 +36,21 @@ class Timber_s {
 
   const TEXT_DOMAIN = '_t';
 
+  public static function get_comments_link( $which = 'next', $label = '' ) {
+    if ( $which === 'next' )
+      $which = 'next_comments_link';
+    elseif ( $which === 'prev' )
+      $which = 'previous_comments_link';
+    else
+      return;
+
+    return self::_capture_output( $which, [ $label ] );
+  }
+
+  public static function get_the_comment_form( $post_id ) {
+    return self::_capture_output( 'comment_form', [ [], $post_id ] );
+  }
+
   public static function get_the_search_form() {
     return self::_capture_output( 'get_search_form', [] );
   }
@@ -57,7 +72,11 @@ class Timber_s {
   }
 
   public static function list_the_categories( $args = [] ) {
-    return self::_capture_output( 'wp_list_categories',  $args );
+    return self::_capture_output( 'wp_list_categories',  [ $args ] );
+  }
+
+  public static function list_the_comments( $args = [], $comments ) {
+    return self::_capture_output( 'wp_list_comments', [ $args, $comments ] );
   }
 
   protected static function _capture_output( callable $fn, array $args ) {
