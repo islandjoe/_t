@@ -36,20 +36,30 @@ class Timber_s {
 
   const TEXT_DOMAIN = '_t';
 
-  public static function get_the_widget( $widget_type, $instance = [], $args = [] ) {
-    $res = '';
-    ob_start();
-        the_widget( $widget_type, $instance, $args );
-        $res = ob_get_contents();
-    ob_end_clean();
+  public static function get_the_posts_navigation( $args = [] ) {
+    return self::_capture_output( 'the_posts_navigation', $args );
+  }
 
-    return $res;
+  public static function get_the_archive_title( $before = '', $after = '' ) {
+    return self::_capture_output( 'the_archive_title', [ $before, $after ] );
+  }
+
+  public static function get_the_archive_description( $before = '', $after = '' ) {
+    return self::_capture_output( 'the_archive_description', [ $before, $after ] );
+  }
+
+  public static function get_the_widget( $widget_type, $instance = [], $args = [] ) {
+    return self::_capture_output( 'the_widget', [$widget_type, $instance, $args] );
   }
 
   public static function list_the_categories( $args = [] ) {
+    return self::_capture_output( 'wp_list_categories',  $args );
+  }
+
+  protected static function _capture_output( callable $fn, array $args ) {
     $res = '';
     ob_start();
-      wp_list_categories( $args );
+      call_user_func_array( $fn, $args );
       $res = ob_get_contents();
     ob_end_clean();
 
