@@ -31,11 +31,16 @@ $context[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lb
 
 $list_arg = [
   'style'      => 'ol',
-  'short_ping' => true
-];
+  'short_ping' => true ];
 $context[ 'comments_list' ] = Timber_s::list_the_comments( $list_arg, get_comments() );
 $context[ 'no_comments' ] = esc_html( 'Comments are closed.', $t );
 
 $context[ 'comment_form' ] = Timber_s::get_the_comment_form( $post->ID );
+
+// Contents Single
+$_arg = [
+  'before' => '<div class="page-links">'.esc_html__( 'Pages:', '_s' ),
+  'after'  => '</div>' ];
+$context[ 'link_pages' ] = Timber_s::get_the_link_pages();
 
 Timber::render( 'single.twig', $context );
