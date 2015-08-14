@@ -16,4 +16,12 @@ $context[ 'taxonomy_desc' ] = Timber_s::get_the_archive_description( '<div class
 $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 $context[ 'posted_on' ] = Timber_s::capture_output( '_t_posted_on', [] );
 
+$_arg = [
+  'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
+  'after'  => '</div>'
+];
+$context[ 'link_pages' ] = Timber_s::get_the_link_pages( $_arg );
+
+$context[ 'entry_footer' ] = Timber_s::capture_output( '_t_entry_footer', [] );
+
 Timber::render( 'archive.twig', $context );

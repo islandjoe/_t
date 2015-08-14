@@ -32,14 +32,11 @@
               'Read more <span class="screen-reader-text">'~'%s</span> &hellip;' | format( post.title ) )
     }}
 
-    {{ fn( 'wp_link_pages', {
-            'before' : '<div class="page-links">' ~ __( 'Pages:', '_t' ),
-            'after'  : '</div>'
-        } ) }}
+    {{ link_pages }}
 
   </div><!-- .entry-content -->
 
   <footer class="entry-footer">
-    {{ fn( '_t_entry_footer' ) }}
+    {{ entry_footer }}
   </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
