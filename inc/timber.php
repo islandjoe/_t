@@ -36,6 +36,10 @@ class Timber_s {
 
   const TEXT_DOMAIN = '_t';
 
+  public static function get_the_search_form() {
+    return self::_capture_output( 'get_search_form', [] );
+  }
+
   public static function get_the_posts_navigation( $args = [] ) {
     return self::_capture_output( 'the_posts_navigation', $args );
   }

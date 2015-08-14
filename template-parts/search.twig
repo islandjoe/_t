@@ -37,11 +37,11 @@
 
         {% endfor %}
 
-        <?php the_posts_navigation(); ?>
+        {{ posts_nav }}
 
       {% else %}
 
-        <?php get_template_part( 'template-parts/content', 'none' ); ?>
+        {% include 'content-none.twig' %}
 
       {% endif %}
 

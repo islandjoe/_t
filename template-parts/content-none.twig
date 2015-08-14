@@ -8,41 +8,31 @@
  *
  #}
 
+{# Call stack: search.php -> search.twig -> thisfile #}
 
 <section class="no-results not-found">
   <header class="page-header">
-    <h1 class="page-title">
-      {{ __( 'Nothing Found', '_t' ) }}
-    </h1>
+    <h1 class="page-title">{{ page_title }}</h1>
   </header><!-- .page-header -->
 
   <div class="page-content">
-    {% if fn( 'is_home' ) and fn( 'current_user_can', 'publish_posts' ) %}
+    {% if is_home and can_publish_posts %}
 
-      {% set admin_url = fn( 'admin_url', 'post-new.php' )|e('url') %}
-      {% set arg = __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '_t' ) %}
-      {% set arr = { 'a': { 'href' : {} } } %}
-      {% set wtf = fn( 'wp_kses', arg, arr ) %}
+      <p>{{ create_post_link }}</p>
 
-      <p>
-        Ready to publish your first post? <a href="{{ wtf | format( admin_url ) }}">Get started here</a>.
-      </p>
+    {% elseif is_search %}
 
-    {% elseif fn( 'is_search' ) %}
+      <p>{{ no_match_found }}</p>
 
-      <p>
-        {{ __( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', '_t' ) }}
-      </p>
-
-      {{ fn( 'get_search_form' ) }}
+      {{ search_form }}
 
     {% else %}
 
       <p>
-        {{ __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', '_t' ) }}
+        {{ no_content_found }}
       </p>
 
-      {{ fn( 'get_search_form' ) }}
+      {{ search_form }}
 
     {% endif %}
   </div><!-- .page-content -->
