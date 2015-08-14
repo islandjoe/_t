@@ -12,8 +12,11 @@
  * @package _t
  */
 
-// *Seeing that this is not the home page nor the 404 page, $context will inject
-//  comments-related vars here (which is defined in 'inc/timber.php')
+/* *Seeing that this is not the:
+//    1) home page, 2) 404 page, 3) search page
+//  $context will inject comments-related vars here, as defined in
+//  'inc/timber.php'
+*/
 $context = Timber::get_context();
 
 $context[ 'post' ] = Timber::get_post();
