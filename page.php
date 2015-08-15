@@ -17,6 +17,8 @@
 //  $context will inject comments-related vars here, as defined in
 //  'inc/timber.php'
 */
+$t = Timber_s::TEXT_DOMAIN;
+
 $context = Timber::get_context();
 
 $context[ 'post' ] = Timber::get_post();
@@ -25,6 +27,7 @@ $context[ 'post' ] = Timber::get_post();
 // Context vars for <content-page.twig>:
 $context[ 'link_pages' ] = Timber_s::get_the_link_pages( [
   'before' => '<div class="page-links">' ~ __( 'Pages:', '_t' ),
+  'before' => '<div class="page-links">' ~ __( 'Pages:', $t ),
   'after'  => '</div>'
 ] );
 
