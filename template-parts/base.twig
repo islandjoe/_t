@@ -18,9 +18,13 @@
   <header id="masthead" class="site-header" role="banner">
     <div class="site-branding">
       {% if fn( 'is_front_page' ) and fn( 'is_home' ) %}
-      <h1 class="site-title"><a href="{{ site.url }}" rel="home">{{ site.name }}</a></h1>
+        <h1 class="site-title">
+          <a href="{{ site.url }}" rel="home">{{ site.name }}</a>
+        </h1>
       {% else %}
-      <p class="site-title"><a href="{{ site.url }}" rel="home">{{ site.name }}</a></p>
+        <p class="site-title">
+          <a href="{{ site.url }}" rel="home">{{ site.name }}</a>
+        </p>
       {% endif %}
       <p class="site-description">{{ site.description }}</p>
     </div><!-- .site-branding -->
