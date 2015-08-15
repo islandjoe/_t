@@ -12,17 +12,20 @@ $context[ 'posts' ] = $posts = Timber::get_posts();
 
 if ( $posts ):
 
-  $context[ 'page_title' ] =  sprintf(
-    esc_html__( 'Search Results for: %s', '_t' ),
-                    '<span>'.get_search_query().'</span>'
-  );
+  $_str = esc_html__( 'Search Results for: %s', '_t' );
+  $_qry = '<span>'.get_search_query().'</span>';
 
-  $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
+  $context[ 'page_title' ]  =  sprintf( $_str, $_qry );
+  $context[ 'posts_nav' ]   = Timber_s::get_the_posts_navigation();
 
-  // This is used in 'content-search.twig'
-  $context[ 'entry_title' ] = the_title(
-    sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">',
-            esc_url( get_permalink() ) ), '</a></h2>', false );
+  // Vars for <content-search.twig>:
+  $_opn = '<h2 class="entry-title"><a href="%s" rel="bookmark">';
+  $_lnk = esc_url( get_permalink() );
+  $_cls = '</a></h2>';
+
+  $context[ 'entry_title' ]  = the_title( sprintf( $_opn, $_lnk ), $_cls, false );
+  $context[ 'posted_on' ]    = Timber_s::capture_output( '_t_posted_on', [] );
+  $context[ 'entry_footer' ] = Timber_s::capture_output( '_t_entry_footer', [] );
 
 else:
 
