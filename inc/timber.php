@@ -28,6 +28,9 @@ add_filter( 'timber_context', function ( $data ) {
     $context[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
     $context[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
     $context[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
+    $data[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
+    $data[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
+    $data[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
 
 
   endif;
