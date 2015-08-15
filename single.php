@@ -22,10 +22,6 @@ $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 
 // Comments
 $t = Timber_s::TEXT_DOMAIN;
-$list_arg = [
-  'style'      => 'ol',
-  'short_ping' => true ];
-$context[ 'comments_list' ] = Timber_s::list_the_comments( $list_arg, get_comments() );
 $context[ 'no_comments' ] = esc_html( 'Comments are closed.', $t );
 
 $context[ 'comment_form' ] = Timber_s::get_the_comment_form( $post->ID );
