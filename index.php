@@ -1,5 +1,7 @@
 <?php
 
+$t = Timber_s::TEXT_DOMAIN;
+
 $context = Timber::get_context();
 
 $context[ 'is_home' ] = is_home();
@@ -11,7 +13,7 @@ $context[ 'single_post_title' ] = single_post_title( '', false );
 $context[ 'posts_nav' ]         = Timber_s::get_the_posts_navigation();
 
 // Vars for <content.twig>:
-$context[ 'post_class' ] = get_post_class();
+$context[ 'post_class' ] = implode(' ', get_post_class() );
 $_arg = [
   'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
   'after'  => '</div>' ];
