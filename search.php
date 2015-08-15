@@ -33,12 +33,7 @@ else:
   $context[ 'is_home' ]           = is_home();
   $context[ 'can_publish_posts' ] = current_user_can( 'publish_posts' );
 
-  $admin_url    = esc_url( admin_url( 'post-new.php' ) );
-  $allowed_tags = [ 'a' => [ 'href' => array() ] ];
-  $line         = __( 'Ready to publish your first post?
-                      <a href="%1$s">Get started here</a>.', Timber_s::TEXT_DOMAIN );
-  $content      = wp_kses( $line, $allowed_tags );
-  $context[ 'create_post_link' ] = sprintf( $content, $admin_url );
+  $context[ 'create_post_link' ] = Timber_s::get_create_post_link();
 
   $context[ 'is_search' ]        = is_search();
   $context[ 'no_match_found' ] = esc_html(
