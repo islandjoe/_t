@@ -36,6 +36,16 @@ class Timber_s {
 
   const TEXT_DOMAIN = '_t';
 
+  public static function get_create_post_link() {
+    $admin_url    = esc_url( admin_url( 'post-new.php' ) );
+    $allowed_tags = [ 'a' => [ 'href' => array() ] ];
+    $line         = __( 'Ready to publish your first post?
+                        <a href="%1$s">Get started here</a>.', $t );
+    $content      = wp_kses( $line, $allowed_tags );
+
+    return sprintf( $content, $admin_url );
+  }
+
   public static function get_comments_link( $which = 'next', $label = '' ) {
     if ( $which === 'next' )
       $which = 'next_comments_link';
