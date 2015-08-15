@@ -23,8 +23,7 @@ $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 // Comments
 $t = Timber_s::TEXT_DOMAIN;
 $context[ 'no_comments' ] = esc_html( 'Comments are closed.', $t );
-
-$context[ 'comment_form' ] = Timber_s::get_the_comment_form( $post->ID );
+$context[ 'the_comment_form' ] = Timber_s::get_the_comment_form( $post->ID );
 
 // Content Single
 $_arg = [
