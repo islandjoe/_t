@@ -25,13 +25,12 @@ add_filter( 'timber_context', function ( $data ) {
     $prev_lbl = esc_html( 'Comment navigation', $t );
     $next_lbl = esc_html( 'Newer Comments', $t );
 
-    $context[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
-    $context[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
-    $context[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
     $data[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
     $data[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
     $data[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
 
+    $list_arg = [ 'style' => 'ol', 'short_ping' => true ];
+    $data[ 'comments_list' ] = Timber_s::list_the_comments( $list_arg, get_comments() );
 
   endif;
 
