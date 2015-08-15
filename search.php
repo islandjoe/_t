@@ -26,6 +26,8 @@ if ( $posts ):
 
 else:
 
+  $t = Timber_s::TEXT_DOMAIN;
+
   $context[ 'page_title' ] = esc_html( 'Nothing Found', '_t' );
 
   $context[ 'is_home' ]           = is_home();
@@ -41,12 +43,12 @@ else:
   $context[ 'is_search' ]        = is_search();
   $context[ 'no_match_found' ] = esc_html(
   'Sorry, but nothing matched your search terms. Please try again with some different keywords.',
-  Timber_s::TEXT_DOMAIN
+  $t
   );
   $context[ 'search_form' ] = Timber_s::get_the_search_form();
   $context[ 'no_content_found' ] = esc_html(
     'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching
-      can help.', Timber_s::TEXT_DOMAIN
+      can help.', $t
   );
 
 endif;
