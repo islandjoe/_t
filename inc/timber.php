@@ -22,6 +22,14 @@ add_filter( 'timber_context', function ( $data ) {
     $data[ 'comments_are_paged' ] = (get_comment_pages_count() > 1 && get_option( 'page_comments' ));
     $data[ 'comments_are_closed_and_there_are_comments' ] = ( ! comments_open() && '0' != $comments_number && post_type_supports( get_post_type(), 'comments' ) );
 
+    $prev_lbl = esc_html( 'Comment navigation', $t );
+    $next_lbl = esc_html( 'Newer Comments', $t );
+
+    $context[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
+    $context[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
+    $context[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
+
+
   endif;
 
   // DYNAMIC SIDEBAR

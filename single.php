@@ -22,13 +22,6 @@ $context[ 'posts_nav' ] = Timber_s::get_the_posts_navigation();
 
 // Comments
 $t = Timber_s::TEXT_DOMAIN;
-$prev_lbl = esc_html( 'Comment navigation', $t );
-$next_lbl = esc_html( 'Newer Comments', $t );
-
-$context[ 'sr_text' ] = esc_html( 'Comment navigation', $t );
-$context[ 'comments_link_prev' ] = Timber_s::get_comments_link( 'prev', $prev_lbl );
-$context[ 'comments_link_next' ] = Timber_s::get_comments_link( 'next', $next_lbl );
-
 $list_arg = [
   'style'      => 'ol',
   'short_ping' => true ];
