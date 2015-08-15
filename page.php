@@ -23,12 +23,17 @@ $context = Timber::get_context();
 
 $context[ 'post' ] = Timber::get_post();
 
-
 // Context vars for <content-page.twig>:
 $context[ 'link_pages' ] = Timber_s::get_the_link_pages( [
-  'before' => '<div class="page-links">' ~ __( 'Pages:', '_t' ),
   'before' => '<div class="page-links">' ~ __( 'Pages:', $t ),
   'after'  => '</div>'
-] );
+] )
+
+$context[ 'edit_post_link' ] = edit_post_link(
+  esc_html( 'Edit', $t ),
+  '<span class="edit-link">',
+  '</span>'
+);
+
 
 Timber::render( 'page.twig', $context );
