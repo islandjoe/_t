@@ -6,6 +6,8 @@ add_filter( 'timber_context', function ( $data ) {
   // [COMMENTS CONTEXT VARS] //
   if ( ! ( is_404() || is_home() || is_search() ) ):
 
+    $t = Timber_s::TEXT_DOMAIN;
+
     $data[ 'has_comments' ] = $comments_number = get_comments_number();
     $data[ 'comments_title' ] = sprintf( // WPCS: XSS OK.
       esc_html(
@@ -50,7 +52,7 @@ class Timber_s {
     $admin_url    = esc_url( admin_url( 'post-new.php' ) );
     $allowed_tags = [ 'a' => [ 'href' => array() ] ];
     $line         = __( 'Ready to publish your first post?
-                        <a href="%1$s">Get started here</a>.', $t );
+                        <a href="%1$s">Get started here</a>.', self::TEXT_DOMAIN );
     $content      = wp_kses( $line, $allowed_tags );
 
     return sprintf( $content, $admin_url );
