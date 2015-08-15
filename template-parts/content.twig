@@ -9,6 +9,10 @@
 #}
 
 {# Call Stack: archive.php -> archive.twig -> thisfile #}
+{# Call Stack:
+     1) archive.php -> archive.twig -> thisfile
+     2) index.php   -> index.twig   -> thisfile
+#}
 
 <article id="post-{{ post.ID }}" class="{{ fn( 'post_class' ) }}">
   <header class="entry-header">
