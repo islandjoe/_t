@@ -21,4 +21,11 @@ $context = Timber::get_context();
 
 $context[ 'post' ] = Timber::get_post();
 
+
+// Context vars for <content-page.twig>:
+$context[ 'link_pages' ] = Timber_s::get_the_link_pages( [
+  'before' => '<div class="page-links">' ~ __( 'Pages:', '_t' ),
+  'after'  => '</div>'
+] );
+
 Timber::render( 'page.twig', $context );
