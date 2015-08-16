@@ -60,12 +60,10 @@
         {{ 'Proudly powered by %s'|format('WordPress') }}
       </a>
       <span class="sep"> | </span>
-      {{
-        __( 'Theme: %1$s by %2$s.', '_t' ) | e |
-            format( '_t', '<a href="http://wanderlusting.me/" rel="designer">'.
-                          'Wanderlusting. Me.'.
-                          '</a>' )
-       }}
+      Theme: _t by
+              <a href="http://wanderlusting.me/" rel="designer">
+                Wanderlusting. Me.
+              </a>
     </div><!-- .site-info -->
   </footer><!-- #colophon -->
   </div><!-- #page -->
