@@ -30,10 +30,17 @@
     </div><!-- .site-branding -->
 
     <nav id="site-navigation" class="main-navigation" role="navigation">
-      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">{{ __( 'Primary Menu', '_t' )|e }}</button>
+
+      <button class="menu-toggle"
+              aria-controls="primary-menu"
+              aria-expanded="false">
+        {{ __( 'Primary Menu', '_t' )|e }}
+      </button>
+
       {{ fn( 'wp_nav_menu', {
             'theme_location' : 'primary',
-            'menu_id' : 'primary-menu' } ) }}
+            'menu_id'        : 'primary-menu' } )
+       }}
     </nav><!-- #site-navigation -->
   </header><!-- #masthead -->
 
@@ -53,7 +60,12 @@
         {{ 'Proudly powered by %s'|format('WordPress') }}
       </a>
       <span class="sep"> | </span>
-      {{ __( 'Theme: %1$s by %2$s.', '_t' )|e|format( '_t', '<a href="http://wanderlusting.me/" rel="designer">Wanderlusting. Me.</a>' ) }}
+      {{
+        __( 'Theme: %1$s by %2$s.', '_t' ) | e |
+            format( '_t', '<a href="http://wanderlusting.me/" rel="designer">'.
+                          'Wanderlusting. Me.'.
+                          '</a>' )
+       }}
     </div><!-- .site-info -->
   </footer><!-- #colophon -->
   </div><!-- #page -->
