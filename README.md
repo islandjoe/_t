@@ -1,3 +1,10 @@
+**Why Timber?** WordPress can really be a nightmare for dev teams. It's because you mix the PHP codes with the HTML codes in the file. This means there is no separation of concerns, such that, the frontend guys get to see the logic codes when developing their frontend stuff, and the backend guys also get to see HTML, JS codes, and probably CSS codes scattered about on the same page.
+Enter Timber. It enables SoC by supercharging WordPress with MVC capability. Read more about [Timber here](https://github.com/timber/timber).
+
+**Why underscores?** I want a theme that's very customizable, clean, and barebones so that I can build the frontend from a clean slate, unencumbered by bells and whistles. Underscores is just such a theme.
+
+But alas, I couldn't find a theme that has built-in support for Timber. Hence I created one, thus, _t (timberscores).
+
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _t
