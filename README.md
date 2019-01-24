@@ -3,7 +3,9 @@ Enter Timber. It enables SoC by supercharging WordPress with MVC capability. Rea
 
 **Why underscores?** I want a theme that's very customizable, clean, and barebones so that I can build the frontend from a clean slate, unencumbered by bells and whistles. Underscores is just such a theme.
 
-But alas, I couldn't find a theme that has built-in support for Timber. Hence I created one, thus, _t (timberscores).
+But alas, I couldn't find a theme that has built-in support for Timber. Hence I created one, thus, \_t (timberscores).
+
+I used \_t on these websites: https://roboformacion.com  and https://wanderlusting.me
 
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
